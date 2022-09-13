@@ -23,14 +23,13 @@ namespace Test_Contacts.Logic.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Contact data transfer object.</returns>
-        Task<ContactDto> GetByAsync(int id);
+        Task<ContactDto> GetByContactIdAsync(int id);
 
         /// <summary>
-        /// Get contacts by identifier.
+        /// Get all contacts .
         /// </summary>
-        /// <param name="id">Contact identifier.</param>
         /// <returns>Contact data transfer objects.</returns>
-        Task<IEnumerable<ContactDto>> GetAllByContactIdAsync(int id);
+        Task<IEnumerable<ContactDto>> GetAllAsync();
 
         /// <summary>
         /// Update contact.
