@@ -9,7 +9,7 @@ namespace Test_Contacts.Logic.ModelsDto
     /// <summary>
     /// Contact Dto model.
     /// </summary>
-    class ContactDto
+    public class ContactDto
     {
         /// <summary>
         /// Identifier.

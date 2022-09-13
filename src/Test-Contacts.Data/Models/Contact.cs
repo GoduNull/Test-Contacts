@@ -9,7 +9,7 @@ namespace Test_Contacts.Data.Models
     /// <summary>
     /// Contact.
     /// </summary>
-    class Contact
+    public class Contact
     {
         /// <summary>
         /// Identifier.

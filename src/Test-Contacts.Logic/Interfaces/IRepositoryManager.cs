@@ -11,7 +11,7 @@ namespace Test_Contacts.Logic.Interfaces
     /// Generic repository provide all base needed methods (CRUD).
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IRepositoryManager
+    public interface IRepositoryManager
     {
         /// <summary>
         /// Generic repository provide all base needed methods (CRUD).

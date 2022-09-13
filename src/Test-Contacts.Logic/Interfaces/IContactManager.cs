@@ -10,7 +10,7 @@ namespace Test_Contacts.Logic.Interfaces
     /// <summary>
     /// Contact manager.
     /// </summary>
-    interface IContactManager
+    public interface IContactManager
     {
         /// <summary>
         /// Create contact.

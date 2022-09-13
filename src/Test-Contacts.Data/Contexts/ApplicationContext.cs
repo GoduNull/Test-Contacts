@@ -9,7 +9,7 @@ using Test_Contacts.Data.Models;
 
 namespace Test_Contacts.Data.Contexts
 {
-    class ApplicationContext: DbContext
+    public class ApplicationContext: DbContext
     {
         /// <summary>
         /// Contructor with params.
