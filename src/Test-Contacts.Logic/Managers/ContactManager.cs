@@ -11,7 +11,7 @@ using Test_Contacts.Logic.ModelsDto;
 namespace Test_Contacts.Logic.Managers
 {
     /// <inheritdoc cref="IContactManager"/>
-    class ContactManager : IContactManager
+    public class ContactManager : IContactManager
     {
         private readonly IRepositoryManager<Contact> _contactRepository;
         public ContactManager(IRepositoryManager<Contact> contactRepository)
