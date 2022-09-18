@@ -12,10 +12,10 @@ using Test_Contacts.Web.ViewModels;
 
 namespace Test_Contacts.Web.Controllers
 {
-    public class HomeController : Controller
+    public class ContactController : Controller
     {
         private IContactManager _contactManager;
-        public HomeController(IContactManager contactManager)
+        public ContactController(IContactManager contactManager)
         {
             _contactManager = contactManager ?? throw new ArgumentNullException(nameof(contactManager));
         }
@@ -111,6 +111,18 @@ namespace Test_Contacts.Web.Controllers
                 JobTitle = contact.JobTitle,
                 BirthDate = contact.BirthDate,
             });
+        }
+        /// <summary>
+        /// Delete contact.
+        /// </summary>
+        /// <param name="contactId"></param>
+        /// <returns>Status</returns>
+        [HttpPost]
+        public async Task<IActionResult> DeleteContact(int contactId)
+        {
+            var project = await _contactManager.GetByContactIdAsync(contactId);
+            await _contactManager.DeleteAsync(contactId);
+            return Ok();
         }
     }
 }

@@ -57,7 +57,7 @@ menuList.addEventListener("click", event => {
 $('#delete').click(function () {
     if (confirm("Удалить контакт?")) {
         $.ajax({
-            url: "/Project/DeleteProject",
+            url: "/Contact/DeleteContact",
             type: "Post",
             data: { contactId },
             success: function (result) {
@@ -66,10 +66,6 @@ $('#delete').click(function () {
                 200: function () {
                     alert('Проект удален');
                     location.reload();
-                },
-                400: function () {
-                    alert('Не получилось');
-                    location.reload();
                 }
             }
         });
@@ -77,7 +73,7 @@ $('#delete').click(function () {
 });
 $('#update').click(function () {
     if (confirm("Изменить контакт?")) {
-        $('#dialogContent').load("/Home/UpdateModalWindow", { id: contactId }, function () {
+        $('#dialogContent').load("/Contact/UpdateModalWindow", { id: contactId }, function () {
             $('#dialogDiv').modal({
                 backdrop: 'static',
                 keyboard: true

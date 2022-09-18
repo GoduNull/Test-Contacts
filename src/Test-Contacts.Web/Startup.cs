@@ -59,7 +59,7 @@ namespace Test_Contacts.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=GetContacts}/{id?}");
+                    pattern: "{controller=Contact}/{action=GetContacts}/{id?}");
             });
         }
     }
