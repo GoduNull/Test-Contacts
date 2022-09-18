@@ -19,6 +19,10 @@ namespace Test_Contacts.Web.Controllers
         {
             _contactManager = contactManager ?? throw new ArgumentNullException(nameof(contactManager));
         }
+        /// <summary>
+        /// Get cintacts (Get).
+        /// </summary>
+        /// <returns> Contact list</returns>
         [HttpGet]
         public async Task<IActionResult> GetContacts()
         {
@@ -43,11 +47,15 @@ namespace Test_Contacts.Web.Controllers
 
             return View(contactListView);
         }
-
+        /// <summary>
+        /// Create contact (Post).
+        /// </summary>
+        /// <param name="contactView"></param>
+        /// <returns>Partial view Close</returns>
         [HttpPost]
         public async Task<IActionResult> CreateContactAsync(ContactViewModel contactView)
         {
-                var contactDto = new ContactDto()
+            var contactDto = new ContactDto()
             {
                 Name = contactView.Name,
                 MobilePhone = contactView.MobilePhone,
@@ -57,15 +65,52 @@ namespace Test_Contacts.Web.Controllers
             await _contactManager.CreateAsync(contactDto);
             return PartialView("Close");
         }
-
+        /// <summary>
+        /// Update contact (Post).
+        /// </summary>
+        /// <param name="contactView"></param>
+        /// <returns>Partial view Close</returns>
+        [HttpPost]
+        public async Task<IActionResult> UpdateContactAsync(ContactViewModel contactView)
+        {
+            var contactDto = new ContactDto()
+            {
+                Id=contactView.Id,
+                Name = contactView.Name,
+                MobilePhone = contactView.MobilePhone,
+                JobTitle = contactView.JobTitle,
+                BirthDate = contactView.BirthDate,
+            };
+            await _contactManager.UpdateAsync(contactDto);
+            return PartialView("CloseUpdate");
+        }
         /// <summary>
         /// CreateProjectModalWindow (Get).
         /// </summary>
-        /// <returns>Partial view</returns>
+        /// <returns>Partial view CreateModalWindow</returns>
         [HttpGet]
         public ActionResult CreateModalWindow()
         {
             return PartialView("CreateModalWindow");
+        }
+        /// <summary>
+        /// UpdateModalWindow
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Partial view UpdateModalWindow</returns>
+        [HttpPost]
+        public async Task<ActionResult> UpdateModalWindowAsync(int id)
+        {
+            var contact = await _contactManager.GetByContactIdAsync(id);
+
+            return PartialView(new ContactViewModel
+            {
+                Id = contact.Id,
+                Name = contact.Name,
+                MobilePhone = contact.MobilePhone,
+                JobTitle = contact.JobTitle,
+                BirthDate = contact.BirthDate,
+            });
         }
     }
 }

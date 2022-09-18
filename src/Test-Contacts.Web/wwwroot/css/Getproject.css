@@ -27,11 +27,16 @@ p {
     border-radius: 2px;
     display: none;
     color: black;
+    background: white;
 }
-    .right-menu:hover {
-        background: #6feeee;
-        cursor: default
-    }
+#update:hover {
+    background: #6feeee;
+    cursor: default
+}
+#delete:hover {
+    background: #6feeee;
+    cursor: default
+}
 
     .right-menu-active {
         display: block;
