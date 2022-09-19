@@ -1,0 +1,40 @@
+﻿@model ContactListViewModel
+@{
+    ViewData["Title"] = "Contact Page";
+}
+@section css
+{
+    <link rel="stylesheet" asp-append-version="true" href="~/css/Getproject.css" />
+}
+
+<div style="text-align: center;">
+    <div class="row mt-5 mb-2  " style="flex-direction: column;">
+        @{ foreach (ContactViewModel contactViewModel in Model.Contacts)
+            {
+                <div class="homeblock col-lg-4" id="@contactViewModel.Id" oncontextmenu="return menu(event);">
+                    <div style="display:flex; flex: 0 1 25%; min-width: 100%; justify-content: space-around; align-items: center;">
+                        <p>Name: @contactViewModel.Name</p>
+                        <p>Phone: @contactViewModel.MobilePhone</p>
+                        <p>Job: @contactViewModel.JobTitle</p>
+                        <p>Birthday: @contactViewModel.BirthDate.ToString("D")</p>
+                    </div>
+                    <div style="height: 4px; width: 100%; background-color: black;"></div>
+                </div> } }
+    </div>
+    @Html.ActionLink("Добавить контакт", "CreateModalWindow", null, null, new { id = "btnCreate", @class = "btn btn-small btn-info", @style = "background-color: #07363e;" })
+</div>
+<div id='dialogDiv' class='modal fade' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='dialogContent'></div>
+        </div>
+    </div>
+</div>
+<div class="right-menu">
+    <div id="update">Изменить контакт</div>
+    <div id="delete">Удалить контакт</div>
+</div>
+@section Scripts {
+    <script src="~/js/getproject.js" asp-append-version="true"></script>
+    <script src="~/js/validate.js" asp-append-version="true"></script>
+}

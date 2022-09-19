@@ -1,0 +1,35 @@
+﻿@model ContactViewModel
+
+<div class="modal-header">
+    <h3 id="myModalLabel">Добавление контакта</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+</div>
+
+<div class="modal-body">
+    <form name="MyForm" method="post" class="myform" action="/Contact/CreateContact">
+        <div>
+            <label asp-for="Name"></label><br />
+            <input asp-for="Name" class='from field'/>
+        </div>
+        <div>
+            <label asp-for="MobilePhone"></label><br />
+            <input asp-for="MobilePhone" class='from field'/>
+        </div>
+        <div>
+            <label asp-for="JobTitle"></label><br />
+            <input asp-for="JobTitle" class='from field'/>
+        </div>
+        <div>
+            <label asp-for="BirthDate"></label><br />
+            <input asp-for="BirthDate" class='from field' />
+        </div>
+        <div>
+            <input class="btn mt-2 btn-outline-success"  type="submit" value="Добавить Проект" />
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script src="~/js/validate.js" asp-append-version="true"></script>
+}
+

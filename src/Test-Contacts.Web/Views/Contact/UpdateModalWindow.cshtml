@@ -1,0 +1,35 @@
+﻿@model ContactViewModel
+
+<div class="modal-header">
+    <h3 id="myModalLabel">Добавление контакта</h3>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+</div>
+
+<div class="modal-body">
+    <form name="MyForm" id="updateForm" method="post" class="myform" action="/Contact/UpdateContact">
+        <div>
+            <input asp-for="Id" value="@Model.Id"  style="display:none;" />
+            <label asp-for="Name"></label><br />
+            <input asp-for="Name" value="@Model.Name" class='from field' />
+        </div>
+        <div>
+            <label asp-for="MobilePhone"></label><br />
+            <input asp-for="MobilePhone" value="@Model.MobilePhone" class='from field' />
+        </div>
+        <div>
+            <label asp-for="JobTitle"></label><br />
+            <input asp-for="JobTitle" value="@Model.JobTitle" class='from field' />
+        </div>
+        <div>
+            <label asp-for="BirthDate"></label><br />
+            <input asp-for="BirthDate" value="@Model.BirthDate.ToString("s")" class='from field' />
+        </div>
+        <div>
+            <input class="btn mt-2 btn-outline-success" type="submit" value="Изменить контакт" />
+            <button class="btn" data-dismiss="modal" aria-hidden="true">Отмена</button>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script src="~/js/validate.js" asp-append-version="true"></script>
+}
