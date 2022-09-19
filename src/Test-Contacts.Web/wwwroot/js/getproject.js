@@ -64,7 +64,7 @@ $('#delete').click(function () {
             },
             statusCode: {
                 200: function () {
-                    alert('Проект удален');
+                    alert('Контакт удален');
                     location.reload();
                 }
             }

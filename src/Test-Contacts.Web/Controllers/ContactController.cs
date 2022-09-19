@@ -118,7 +118,7 @@ namespace Test_Contacts.Web.Controllers
         /// <param name="contactId"></param>
         /// <returns>Status</returns>
         [HttpPost]
-        public async Task<IActionResult> DeleteContact(int contactId)
+        public async Task<IActionResult> DeleteContactAsync(int contactId)
         {
             var project = await _contactManager.GetByContactIdAsync(contactId);
             await _contactManager.DeleteAsync(contactId);
